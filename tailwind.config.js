@@ -12,6 +12,9 @@ module.exports = {
         tertiary: '#cbcdd6',
         dark: '#252a2e',
 
+        text: "#363545",
+        "text-dark": "#f9f9fb",
+
         // Primary Palette
         "trimble-dark-blue": "#004f83",
         "trimble-blue": "#0063a3",
@@ -68,5 +71,7 @@ module.exports = {
     },    
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

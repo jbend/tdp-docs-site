@@ -1,11 +1,33 @@
+import { useState, useEffect } from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../components/Header'
-import Navbar from '../components/Navbar'
-//import styles from '../styles/Home.module.css'
+import HeroCard from '../components/HeroCard';
+
+import { getEntities, MarkdownLink } from '../lib/azure';
+
+export async function getStaticProps() {
+
+  console.log(process.env.TABLE_MARKDOWN_LINKS);
+  let docList = null;
+
+  getEntities()
+     .then((res) => {
+       console.log(res)
+       docList = res;
+     })
+
+
+  return {
+    props: { docList }, // will be passed to the page component as props
+  }
+}
+
+
 
 const Home: NextPage = () => {
+
   return (
     <div className="">
       <Head>
@@ -15,16 +37,15 @@ const Home: NextPage = () => {
       </Head>
 
       <Header />
+      
+      <div className="w-2/3 mx-auto mt-12">
+        <main className="w-full grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
+          <HeroCard cardTitle="Construction" location="/docs/construction" image="/construction.webp" imageAltText="Construction" />
+          <HeroCard cardTitle="Transportation" location="/docs/transportation" image="/transportation.webp" imageAltText="Transportation" />
+          <HeroCard cardTitle="Agriculture" location="/docs/agriculture" image="/agriculture.webp" imageAltText="Agriculture" />
+        </main>
+      </div>
 
-       <main className="">
-        <h1 className="">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-        <h1 className="text-4xl mt-6">
-          with Tailwind CSS
-        </h1>
-    
-      </main>
     </div>
   )
 }
