@@ -1,13 +1,13 @@
-import Navbar from '../../../components/Navbar';
+import Navbar from "../../../components/Navbar";
 
-export default function AgricultureIndexPage({ }) {
+export default function AgricultureIndexPage({}) {
   return (
     <main>
       <Navbar />
-      <div className="w-2/3 mx-auto mt-12">
+      <div className="mx-auto mt-12 w-2/3">
         <h1>Construction</h1>
         <p>Document Index</p>
       </div>
     </main>
-  )
+  );
 }

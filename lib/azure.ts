@@ -1,8 +1,8 @@
 import { TableClient } from "@azure/data-tables";
 const serviceClient = null; //TableClient.fromConnectionString(
-  process.env.AZURE_TABLES_CONNECTION_STRING,
-  process.env.TABLE_MARKDOWN_LINKS
-);
+//   process.env.AZURE_TABLES_CONNECTION_STRING,
+//   process.env.TABLE_MARKDOWN_LINKS
+// );
 
 export interface MarkdownLink {
   etag: string;

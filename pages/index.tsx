@@ -1,33 +1,10 @@
-import { useState, useEffect } from 'react';
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Header from '../components/Header'
-import HeroCard from '../components/HeroCard';
-
-import { getEntities, MarkdownLink } from '../lib/azure';
-
-export async function getStaticProps() {
-
-  console.log(process.env.TABLE_MARKDOWN_LINKS);
-  let docList = null;
-
-  getEntities()
-     .then((res) => {
-       console.log(res)
-       docList = res;
-     })
-
-
-  return {
-    props: { docList }, // will be passed to the page component as props
-  }
-}
-
-
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Header from "../components/Header";
+import HeroCard from "../components/HeroCard";
 
 const Home: NextPage = () => {
-
   return (
     <div className="">
       <Head>
@@ -37,17 +14,31 @@ const Home: NextPage = () => {
       </Head>
 
       <Header />
-      
-      <div className="w-2/3 mx-auto mt-12">
-        <main className="w-full grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
-          <HeroCard cardTitle="Construction" location="/docs/construction" image="/construction.webp" imageAltText="Construction" />
-          <HeroCard cardTitle="Transportation" location="/docs/transportation" image="/transportation.webp" imageAltText="Transportation" />
-          <HeroCard cardTitle="Agriculture" location="/docs/agriculture" image="/agriculture.webp" imageAltText="Agriculture" />
+
+      <div className="mx-auto mt-12 w-2/3">
+        <main className="grid w-full gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <HeroCard
+            cardTitle="Construction"
+            location="/docs/construction"
+            image="/construction.webp"
+            imageAltText="Construction"
+          />
+          <HeroCard
+            cardTitle="Transportation"
+            location="/docs/transportation"
+            image="/transportation.webp"
+            imageAltText="Transportation"
+          />
+          <HeroCard
+            cardTitle="Agriculture"
+            location="/docs/agriculture"
+            image="/agriculture.webp"
+            imageAltText="Agriculture"
+          />
         </main>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

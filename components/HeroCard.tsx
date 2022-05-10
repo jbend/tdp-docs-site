@@ -9,17 +9,16 @@ export interface HeroCardProps {
 }
 
 export default function HeroCard({ cardTitle, location, image, imageAltText }: HeroCardProps) {
-  const cardWidth = 384;
-  const cardHeight = cardWidth * 0.75;
+  const imageWidth = 240;
+  const imageHeight = 180;
   return (
-    <div className="relative max-w-sm bg-modus-white rounded-lg border border-modus-gray-2 shadow-md dark:bg-modus-gray-8 dark:border-modus-gray-7">
-      <a href="#">
-        <Image className="rounded-t-lg" width={cardWidth} height={cardHeight} src={ image } alt={ imageAltText } />
-      </a>
+    <div className="relative max-w-s bg-modus-white rounded-lg border border-modus-gray-2 
+      shadow-md dark:bg-modus-gray-8 dark:border-modus-gray-7">
+      <div>
+        <Image className="rounded-t-lg" src={ image } height={ imageHeight } width={ imageWidth } alt={ imageAltText } />
+      </div>
       <div className="p-5">
-        <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-modus-text dark:text-modus-text-dark">{ cardTitle}</h5>
-        </a>
+        <h5 className="mb-2 text-2xl font-bold tracking-tight text-modus-text dark:text-modus-text-dark">{ cardTitle}</h5>
         <p className="mb-3 font-normal text-modus-text dark:text-modus-text-dark">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
         <Link href={ location }>
           <a className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-modus-white bg-modus-trimble-blue 

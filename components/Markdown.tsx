@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 
-export default function Markdown({url}: string) {
+export interface MarkdownProps {
+  url: string;
+  
+}
+
+export default function Markdown({ url }: MarkdownProps) {
   const [ markdown, setMarkdown ] = useState<string>('');
 
 
